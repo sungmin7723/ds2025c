@@ -1,3 +1,6 @@
+import random
+
+
 class Node:
     def __init__(self, data, link=None):
         self.data = data
@@ -43,10 +46,18 @@ class LinkedList:
         return f"{target}은(는) 링크드 리스트 안에 존재하지 않습니다!"
 
 
-ll = LinkedList()
-ll.append(8)
-ll.append(10)
-ll.append(-9)
+# ll = LinkedList()
+# ll.append(8)
+# ll.append(10)
+# ll.append(-9)
+# print(ll)
+# print(ll.search(99))
+# print(ll.search(8))
+
+ll  = LinkedList()
+for _ in range(20):
+    # j = random.randint(1,30)
+    ll.append(random.randint(1,30))
+    # print(j, end=" ")
 print(ll)
-print(ll.search(99))
 print(ll.search(10))
