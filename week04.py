@@ -9,33 +9,31 @@ class LinkedList:
         self.head = None
 
     def append(self, data):
-        # if not self.head:
-        #     self.head = Node(data)
-        #     return
-        # current = self.head
-        # while current.link:
-        #     current = current.link # 이동
-        # current.link = Node(data)
+        if not self.head:
+            self.head = Node(data)
+            return
         current = self.head
-        out_texts = ""
-        while current is not None:
-            out_texts = out_texts + str(current.data) + " -> "
-            current= current.link
-        return out_texts + " END"
+        while current.link:
+            current = current.link
+        current.link = Node(data)
 
     def __str__(self):
+        # current = self.head
+        # while current is not None:
+        #     print(current.data, end=" ")
+        #     current = current.link
+        # # return "Linked List"
+        # return  "end"
         current = self.head
         out_texts = ""
         while current is not None:
             out_texts = out_texts + str(current.data) + " -> "
             current = current.link
-        return out_texts + " END"
+        return out_texts + "END"
 
 
 ll = LinkedList()
-
 ll.append(8)
 ll.append(10)
 ll.append(-9)
-
 print(ll)
