@@ -1,26 +1,27 @@
-# 자료구조 연습 코드 리스트 반전 시키기
+class Node:
+    def __init__(self, data, link=None):
+        self.data = data
+        self.link = link
 
-string_a = "Data Structure"
-reversed_string_a = string_a[::-1]
-print(reversed_string_a)
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+        self.size = 0
 
-print()
+    def enqueue(self, data):
+        self.size = self.size + 1
+        node = Node(data)
+        if self.rear is None:
+            self.front = node
+            self.rear = node
+        else:
+            self.rear.link = node
+            self.rear = node
 
-#string reverse with reversed() method
-string_b = "Database"
-reversed_string_b = "".join(reversed(string_b))
-print(reversed_string_b)
 
-print()
+q = Queue()
+q.enqueue("DataBase")
+q.enqueue("Data Structure")
 
-#string reverse with stack
-def reverse_string(string_c):
-    stack = []
-    reversed_string_c = ""
-    for c in string_c:
-        stack.append(c)
-    for c in range(len(stack)):
-        reversed_string_c += stack.pop()
-    return reversed_string_c
-
-print(reverse_string("Python"))
+print(q.size, q.front.data, q.rear.data)
